@@ -16,10 +16,10 @@ class DataBaseHelpers {
   String colDate = 'date';
   String colPriority = 'priority';
 
-  DataBaseHelpers._createInstace();
+  DataBaseHelpers._createInstance();
 
   factory DataBaseHelpers() {
-    _dataBaseHelpers ??= DataBaseHelpers._createInstace();
+    _dataBaseHelpers ??= DataBaseHelpers._createInstance();
     return _dataBaseHelpers!;
   }
   Future<Database> get database async{
@@ -68,11 +68,9 @@ class DataBaseHelpers {
   Future<List<Note>> getNoteList()async{
     List<Map<String, dynamic>> noteMapList = await getNoteMapList();
     int count = noteMapList.length;
-    print('2222222222222 our note map length is $count');
 
     List<Note> noteList = <Note>[];
     for(int i =0; i< count; i++){
-      print(' 3333333333 description in not map is ${noteMapList[i]['description']}');
       noteList.add(Note.fromMap(map: noteMapList[i]));
       
     }
